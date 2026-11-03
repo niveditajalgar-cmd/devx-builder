@@ -1,0 +1,626 @@
+/* ==========================================================================
+   DevX WEBSITE STYLES — LINKED FROM INDEX.HTML
+   ========================================================================== */
+
+/* --- 1. Global Reset & Core Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+
+:root {
+  --bg: #0b1020;
+  --panel: #151c30;
+  --text: #f4f6ff;
+  --muted: #9aa6c2;
+  --accent: #8b5cf6;
+  --cyan: #22d3ee;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* --- 2. Layout & Shared Utility Components --- */
+.container {
+  width: min(1200px, 92%);
+  margin: auto;
+}
+
+section {
+  padding: 85px 0;
+  scroll-margin-top: 80px;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 42px;
+}
+
+.section-heading h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 10px;
+}
+
+.section-heading p,
+.muted {
+  color: var(--muted);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--cyan), #a78bfa, #f472b6);
+  color: transparent;
+  background-clip: text;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid #27314c;
+  border-radius: 18px;
+  padding: 24px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.panel:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.panel-subtitle {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.pill {
+  white-space: nowrap;
+  font-size: 12px;
+  border-radius: 20px;
+  padding: 5px 10px;
+  background: #164e3d;
+  color: #86efac;
+}
+
+.pill.pending {
+  background: #4a3517;
+  color: #fcd34d;
+}
+
+/* --- 3. Buttons --- */
+.button {
+  display: inline-block;
+  border: 0;
+  border-radius: 10px;
+  padding: 13px 22px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px #8b5cf644;
+}
+
+.primary,
+.nav-button {
+  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  color: white;
+}
+
+.secondary {
+  border: 1px solid #3a4563;
+  margin-left: 10px;
+}
+
+/* --- 4. Navigation Header --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(11, 16, 32, 0.92);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #27304a;
+}
+
+.navbar {
+  min-height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: var(--cyan);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--cyan);
+}
+
+/* --- 5. Hero Section --- */
+.hero {
+  min-height: 650px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: 
+    radial-gradient(ellipse at 80% 30%, #39246b 0%, transparent 45%),
+    radial-gradient(ellipse at 10% 80%, #123b57 0%, transparent 40%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 1px solid #51417b;
+  border-radius: 30px;
+  color: var(--cyan);
+  background: #15172c;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.12;
+  margin-bottom: 22px;
+}
+
+.hero-copy > p {
+  color: var(--muted);
+  max-width: 550px;
+  margin-bottom: 30px;
+}
+
+.hero-image {
+  position: relative;
+  border-radius: 25px;
+  overflow: hidden;
+  border: 1px solid #454568;
+  box-shadow: 0 25px 80px #0008;
+  animation: float 5s ease-in-out infinite;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+.image-label {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  padding: 16px;
+  background: #10172bdb;
+  backdrop-filter: blur(12px);
+  border-radius: 14px;
+}
+
+.image-label p {
+  color: var(--muted);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* --- 6. Stats Section --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background: var(--panel);
+  border: 1px solid #27314c;
+  border-radius: 18px;
+  padding: 24px;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.stat-icon {
+  font-size: 27px;
+}
+
+.stat-card h3 {
+  font-size: 30px;
+  margin: 8px 0;
+}
+
+.stat-card p {
+  color: var(--muted);
+}
+
+.positive {
+  color: #4ade80;
+  font-size: 13px;
+}
+
+
+
+/* --- 9. Filterable Gallery --- */
+.gallery-filter {
+  position: relative;
+}
+
+.filter-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.filter-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.filter-controls label {
+  padding: 9px 18px;
+  border: 1px solid #36405b;
+  border-radius: 30px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#all:checked ~ .filter-controls label[for="all"],
+#design:checked ~ .filter-controls label[for="design"],
+#nature:checked ~ .filter-controls label[for="nature"],
+#architecture:checked ~ .filter-controls label[for="architecture"] {
+  color: white;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.filter-input:focus-visible + .filter-controls label {
+  outline: 2px solid var(--cyan);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-card {
+  position: relative;
+  border-radius: 17px;
+  overflow: hidden;
+  min-height: 240px;
+  background: var(--panel);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.09);
+}
+
+.gallery-caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 45px 18px 18px;
+  background: linear-gradient(transparent, #050816ed);
+}
+
+.gallery-caption small {
+  color: var(--cyan);
+}
+
+#design:checked ~ .gallery .gallery-card:not(.design),
+#nature:checked ~ .gallery .gallery-card:not(.nature),
+#architecture:checked ~ .gallery .gallery-card:not(.architecture) {
+  display: none;
+}
+
+/* --- 10. Endless Marquee --- */
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 18px;
+  animation: scroll-images 35s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-track img {
+  width: 290px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid #35405c;
+}
+
+@keyframes scroll-images {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* --- 11. Features (Interactive Cards) --- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.flip-card {
+  height: 280px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-inner {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.flip-card:hover .flip-inner,
+.flip-card:focus .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 5px;
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  backface-visibility: hidden;
+  border: 1px solid #343e5c;
+}
+
+.flip-front {
+  background: linear-gradient(145deg, #1b2440, #15192d);
+}
+
+.flip-back {
+  background: linear-gradient(145deg, #43317c, #16485b);
+  transform: rotateY(180deg);
+}
+
+.flip-icon {
+font-size: 48px;
+margin-bottom: 15px;
+}
+.flip-front p,
+.flip-back p {
+color: #c5cce0;
+margin-top: 10px;
+}
+/* --- 12. Testimonials --- */
+.testimonial-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+.quote {
+font-size: 34px;
+color: var(--cyan);
+}
+.testimonial-card > p {
+color: #bdc7df;
+margin: 12px 0 22px;
+}
+.profile {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.avatar {
+width: 43px;
+height: 43px;
+flex-shrink: 0;
+display: grid;
+place-items: center;
+background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+border-radius: 50%;
+font-weight: bold;
+}
+/* --- 13. Contact & Footer --- */
+.contact-box {
+max-width: 700px;
+margin: auto;
+padding: 35px;
+background: var(--panel);
+border: 1px solid #303954;
+border-radius: 20px;
+}
+.form-group {
+margin-bottom: 20px;
+}
+.form-group label {
+display: block;
+margin-bottom: 7px;
+}
+.form-group input {
+width: 100%;
+padding: 13px;
+border: 1px solid #38435f;
+border-radius: 9px;
+background: #0d1427;
+color: white;
+outline: none;
+}
+.form-group input:focus {
+border-color: var(--cyan);
+}
+.form-note {
+margin-top: 15px;
+font-size: 13px;
+}
+footer {
+padding: 28px 0;
+border-top: 1px solid #283149;
+text-align: center;
+color: var(--muted);
+}
+footer p + p {
+margin-top: 6px;
+}
+footer p a {
+  
+}
+footer a:hover {
+color: var(--cyan);
+}
+/* --- 14. Responsive Breakpoints --- */
+@media (max-width: 900px) {
+.hero-grid,
+.dashboard-layout {
+grid-template-columns: 1fr;
+}
+.hero {
+padding: 75px 0;
+}
+.hero-image {
+max-width: 650px;
+width: 100%;
+}
+.stats-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+.gallery,
+.features-grid,
+.testimonial-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+.nav-links {
+gap: 12px;
+font-size: 13px;
+}
+}
+@media (max-width: 600px) {
+section {
+padding: 60px 0;
+}
+.navbar {
+flex-wrap: wrap;
+padding: 15px 0;
+}
+.nav-links {
+width: 100%;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+.nav-button {
+display: none;
+}
+.stats-grid,
+.gallery,
+.features-grid,
+.testimonial-grid {
+grid-template-columns: 1fr;
+}
+.hero h1 {
+font-size: 43px;
+}
+.hero-image img {
+height: 290px;
+}
+.contact-box {
+padding: 22px;
+}
+.chart {
+gap: 5px;
+}
+.chart-column span {
+font-size: 11px;
+}
+.secondary {
+margin: 12px 0 0;
+}
+}
+/* --- 15. Accessibility Optimizations --- */
+@media (prefers-reduced-motion: reduce) {
+*,
+*::before,
+*::after {
+animation-duration: 0.01ms !important;
+animation-iteration-count: 1 !important;
+scroll-behavior: auto !important;
+transition-duration: 0.01ms !important;
+}
